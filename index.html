@@ -1,699 +1,318 @@
-<!DOCTYPE html>
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
+<!doctype html>
 <html lang="en">
-<!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-		<title>HoloAssist</title>
-		<meta name="description" content="Responsive HTML5 Template">
-		<meta name="author" content="webthemez">
-
-		<!-- Mobile Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="images/favicon.ico">
- 
-		<link href="bootstrap/css/bootstrap.css" rel="stylesheet"> 
-		<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet"> 
-		<link href="css/animations.css" rel="stylesheet"> 
-		<link href="css/style.css" rel="stylesheet"> 
-		<link href="css/custom.css" rel="stylesheet">
-	</head>
-
-	<body class="no-trans">
-		<!-- scrollToTop --> 
-		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
-
-		<!-- header start --> 
-		<header class="header fixed clearfix navbar navbar-fixed-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-
-						<!-- header-left start --> 
-						<div class="header-left">
-
-							<!-- logo -->
-
-							<!-- name-and-slogan -->
-							<div class="logo-section smooth-scroll">
-								<div class="brand"><a href="#banner">HoloAssist</a></div>								
-							</div>
-
-						</div>
-						<!-- header-left end -->
-
-					</div>
-					<div class="col-md-8">
-
-						<!-- header-right start --> 
-						<div class="header-right">
-
-							<!-- main-navigation start --> 
-							<div class="main-navigation animated">
-
-								<!-- navbar start --> 
-								<nav class="navbar navbar-default" role="navigation">
-									<div class="container-fluid">
-
-										<!-- Toggle get grouped for better mobile display -->
-										<div class="navbar-header">
-											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-												<span class="sr-only">Toggle navigation</span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-											</button>
-										</div>
-
-										<!-- Collect the nav links, forms, and other content for toggling -->
-										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
-											<ul class="nav navbar-nav navbar-right">
-												<!-- <li><a href="#about">Paper</a></li>-->
-												<li><a href="#challenges">Challenges</a></li>
-												<li><a href="#download">Download</a></li>
-												<li><a href="#resources">Resources</a></li>
-												<li><a href="#team">Team</a></li>
-												<!-- <li><a href="#citation">Citation</a></li> -->
-												<li><a href="#contact" style="color: #f00a6a;">Contact</a></li> 
-												<li><a href="https://discord.gg/CmNU2wmuzw">Discord</a></li>
-											</ul>
-										</div>
-
-									</div>
-								</nav>
-								<!-- navbar end -->
-
-							</div>
-							<!-- main-navigation end -->
-
-						</div>
-						<!-- header-right end -->
-
-					</div>
-				</div>
-			</div>
-		</header>
-		<!-- header end -->
-
-		<!-- banner start --> 
-		<div id="banner" class="banner">
- 			<div class="banner-image"><span role="img" aria-label="HoloAssist Image"> </span></div> 
-				<div class="container">
-					<div class="row">					 
-						<div class="caption-data" style="margin-top: 0px; opacity: 1;" data-animation-effect="fadeIn">
-								<h1>HoloAssist</h1>
-								<h3 class="padding-top30">A large-scale egocentric
-									human interaction dataset, <br/> where two people collaboratively
-									complete physical manipulation tasks.</h3>
-								<div class="padding-top60 contact-form">
-									<a href="#HoloAssist"><button class="btn cta-button">More</button></a>
-								</div>
-							</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- banner end -->
-		<section class="hero-caption secPadding">
-
-		<div class="container">
-	
-	<div class="row " style="margin-top: 0px;">
-				<div class="col-sm-12">
-	<h2 id="HoloAssist">HoloAssist</h2>
-<p>Building an interactive AI assistant that can perceive, reason, and collaborate with humans in the real world has been a long-standing pursuit in the AI community. This work is part of a broader research effort to develop intelligent agents that can interactively guide humans through performing tasks in the physical world. As a first step in this direction, we introduce HoloAssist, a large-scale egocentric human interaction dataset, where two people collaboratively complete physical manipulation tasks. The task performer executes the task while wearing a mixed-reality headset that captures seven synchronized data streams. The task instructor watches the performer’s egocentric video in real time and guides them verbally. By augmenting the data with action and conversational annotations and observing the rich behaviors of various participants, we present key insights into how human assistants correct mistakes, intervene in the task completion procedure, and ground their instructions to the environment. HoloAssist spans 169 hours of data captured by 350 unique instructor-performer pairs. Furthermore, we construct and present benchmarks on mistake detection, intervention type prediction, and hand forecasting, along with detailed analysis. We expect HoloAssist will provide an important resource for building AI assistants that can fluidly collaborate with humans in the real world.</p>
- 	</div>
-	
-			</div>
-
-		</div>
-	
-</section>
-
-
-
-
-
-<!-- section start --> 
-<section class="default-bg secPadding">
-			
-	<div class="container">
-	  <div class="row">
-		<div class='col-md-offset-2 col-md-8 text-center'>
-		<h2>Sample Data</h2>
-		</div>
-	  </div>
-	  <div class='row'>
-		<div class='col-md-offset-2 col-md-8'>
-		  <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-			<!-- Bottom Carousel Indicators -->
-			<ol class="carousel-indicators">
-			  <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
-			  <li data-target="#quote-carousel" data-slide-to="1"></li>
-			  <li data-target="#quote-carousel" data-slide-to="2"></li>
-			  <li data-target="#quote-carousel" data-slide-to="3"></li>
-			  <li data-target="#quote-carousel" data-slide-to="4"></li>
-			</ol>
-			
-			<!-- Carousel Slides / Quotes -->
-			<div class="carousel-inner">
-			
-			  <!-- Quote 1 -->
-			  <div class="item active">
-				<blockquote>
-				  <div class="row">
-					<div class="text-center">
-					  <img src="images/samples/gopro_20.gif" alt="" style="width: 700px;height:400px;">
-					</div>
-					<div class="col-sm-9">
-					  <small style="color: white;">GoPro (Small Object)</small>
-					</div>
-				  </div>
-				</blockquote>
-			  </div>
-			  <!-- Quote 2 -->
-			  <div class="item">
-				<blockquote>
-				  <div class="row">
-					<div class="text-center">
-						<img src="images/samples/espresso_20.gif" alt="" style="width: 700px;height:400px;">
-					</div>
-					<div class="col-sm-9">
-					  <small style="color: white;">Espresso (Medium Object)</small>
-					</div>
-				  </div>
-				</blockquote>
-			  </div>
-			  <!-- Quote 3 -->
-			  <div class="item">
-				<blockquote>
-				  <div class="row">
-					<div class="text-center">
-						<img src="images/samples/rashult_20.gif" alt="" style="width: 700px;height:400px;">					
-					</div>
-					<div class="col-sm-9">
-					  <small style="color: white;">Ikea-Rashult (Big Object)</small>
-					</div>
-				  </div>
-				</blockquote>
-			  </div>
-
-				<!-- Quote 4 -->
-				<div class="item">
-				<blockquote>
-				  <div class="row">
-					<div class="text-center">
-						<img src="images/samples/navvis_20.gif" alt="" style="width: 700px;height:400px;">					
-					</div>
-					<div class="col-sm-9">
-					   <small style="color: white;"> Navvis (Rare Object)</small>
-					</div>
-				  </div>
-				</blockquote>
-			  </div>
-
-
-			  <!-- Quote 5 -->
-				<div class="item">
-					<blockquote>
-					  <div class="row">
-						<div class="text-center">
-							<img src="images/samples/nintendo_all_modal.gif" alt="" style="width: 1400px;height:400px;">					
-						</div>
-						<div class="col-sm-9">
-						   <small style="color: white;"> Nintendo Switch - (RGB, depth, hand pose, eye gaze, IMUs) </small>
-						</div>
-					  </div>
-					</blockquote>
-				  </div>
-
-			</div>              
-		  </div>                          
-		</div>
-	  </div>
-	</div>
-			</section>
-
-<!-- section start --> 
-		<section class="section transprant-bg pclear secPadding">
-			<div class="container no-view" data-animation-effect="fadeIn">
-				<h1 id="challenges" class="title text-center">Challenges (CVPR'26 <a href="https://egovis.github.io/cvpr26/">EgoVis workshop</a>, Deadline: May 13th)</h1>
-				<div class="space"></div>
-				<div class="row">
-						<div class="col-md-3"></div>
-					<div class="col-md-6">
-						<div class="media block-list">
-							<div class="media-left">
-								<a class="publink " target="_blank" href="https://www.codabench.org/competitions/2613/" aria-label="Mistake detection"><i class="fa fa-search"></i></a>
-							</div>
-							<div class="media-body"></br>
-								<a class="publink " target="_blank" href="https://www.codabench.org/competitions/2613/"  aria-label="Mistake detection"><h3 class="media-heading">Mistake detection</h3></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3"></div>
-				</div>
-				<br>
-				<h2 id="challenges" class="title text-center">-----The following are not part of the EgoVis Challenges.------</h1>
-				<!-- <br> -->
-
-				<div class="row">
-					<br>
-					<div class="col-md-3"></div>
-					<div class="col-md-6">
-						
-						<div class="media block-list">
-							
-							<div class="media-left">
-								<a class="publink " target="_blank" href="https://www.codabench.org/competitions/2611" aria-label="Action recognition"><i class="fa fa-male"></i></a>
-							</div>
-							<div class="media-body"></br>
-								<a class="publink " target="_blank" href="https://www.codabench.org/competitions/2611" aria-label="Action recognition"><h3 class="media-heading">Action recognition and anticipation</h3></a>
-	
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3"></div>
-				</div>
-					
-				<div class="row">
-					<div class="col-md-3"></div>
-					<div class="col-md-6">
-						<div class="media block-list">
-							<div class="media-left">
-								<a class="publink " target="_blank" href="https://www.codabench.org/competitions/2612/" aria-label="Intervention type prediction"><i class="fa fa-clock-o"></i></a>
-							</div>
-							<div class="media-body"></br>
-								<a class="publink " target="_blank" href="https://www.codabench.org/competitions/2612/" aria-label="Intervention type prediction"><h3 class="media-heading">Intervention type prediction</h3></a>
-	
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3"></div>
-				
-					<!-- <div class="col-md-6">
-						<div class="media block-list">
-							<div class="media-left">
-								<a class="publink " target="_blank" href="" aria-label="3D hand pose forecasting"><i class="fa fa-hand-o-up"></i></a>
-							</div>
-							<div class="media-body"></br>
-								<a class="publink " target="_blank" href="" aria-label="3D hand pose forecasting"><h3 class="media-heading">3D hand pose forecasting (preparing)</h3></a>
-	
-							</div>
-						</div>
-					</div> -->
-					
-				</div>
-			</div>			  
-		</section>
-		<!-- section end -->
-
-		<!-- section start --> 
-		<section class="section clearfix no-view secPadding" data-animation-effect="fadeIn">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1 id="download" class="title text-center"> <span>Download</span></h1>
-						<p class="lead text-center">
-						We release the dataset under the <a href="https://cdla.dev/permissive-2-0/"
-							style="color: #1a4a8a; text-decoration: underline;">CDLAv2</a> license, a permissive license. 
-						You can donwload the data via the links in the text files below.  <a
-							href="data_links/README.html" style="color: #1a4a8a; text-decoration: underline;">Here</a> is a simple instruction on how to use the dataset. (<a href="data_links/README.md"
-							style="color: #1a4a8a; text-decoration: underline;">README.md</a>)
-						<ul>
-							<!-- <li><a href="data_links/video_pitch_shifted.txt">Videos (pitch shifted, 184.20 GB)</a></li>
-							<li><a href="data_links/compressed_video.txt">Compressed Videos (resize the width to 256, 144.62 GB)</a></li>
-							<li><a href="data_links/ahat_depth.txt">Ahat depth (560.46 GB)</a></li>
-							<li><a href="data_links/eye_gaze.txt">Eye gaze (2.45 GB)</a></li>
-							<li><a href="data_links/hands.txt">Hand pose (219.24 GB)</a></li>
-							<li><a href="data_links/head.txt">Head pose (4.67 GB)</a></li>
-							<li><a href="data_links/imu.txt">IMU (4.63 GB)</a></li>
-							<li><a href="data_links/labels.txt">Labels (111 MB)</a></li>
-							<li><a href="data_links/cam_info.txt">Camera (RGB and Depth) calibration information (10.07 GB) </a></li>
-							<li><a href="data_links/dataset_splits.txt">Dataset splits (train/val/test) </a></li> -->
-							<li><a href="https://hl2data.z5.web.core.windows.net/holoassist-data-release/video_pitch_shifted.tar">Videos (pitch shifted, 184.20 GB)</a></li>
-							<li><a href="https://hl2data.z5.web.core.windows.net/holoassist-data-release/video_compress.tar">Compressed videos (resize the width to 256, 144.62 GB)</a></li>
-							<li><a href="https://hl2data.z5.web.core.windows.net/holoassist-data-release/ahat_depth.tar">Ahat depth (560.46 GB)</a></li>
-							<li><a href="https://hl2data.z5.web.core.windows.net/holoassist-data-release/eyes.tar">Eye gaze (2.45 GB)</a></li>
-							<li><a href="https://hl2data.z5.web.core.windows.net/holoassist-data-release/hands.tar">Hand pose (219.24 GB)</a></li>
-							<li><a href="https://hl2data.z5.web.core.windows.net/holoassist-data-release/head.tar">Head pose (4.67 GB)</a></li>
-							<li><a href="https://hl2data.z5.web.core.windows.net/holoassist-data-release/imu.tar">IMU (4.63 GB)</a></li>
-							<li><a href="https://hl2data.z5.web.core.windows.net/holoassist-data-release/data-annotation-trainval-v1_1.json">Labels (111 MB)</a></li>
-							<li><a href="https://hl2data.z5.web.core.windows.net/holoassist-data-release/cam_info.tar">Camera (RGB and Depth) calibration information (10.07 GB) </a></li>
-							<li><a href="label_files/data-splits-v1_2.zip">Dataset splits (train/val/test) </a></li>
-
-							<li><a href="https://www.research-collection.ethz.ch/handle/20.500.11850/683960">Alternative download site </a></li>
-							
-						</ul>
-						</p>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- section end -->
- 
-		<!-- section start --> 
-		<div class="default-bg colord secPadding">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h1 id="resources"  class="text-center">Resources</h1>
-						<p class="lead text-center">
-						<a class="publink " target="_blank" href="https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_HoloAssist_an_Egocentric_Human_Interaction_Dataset_for_Interactive_AI_Assistants_ICCV_2023_paper.pdf" aria-label="Paper link">Paper</br></a>
-						<a class="publink " target="_blank" href="https://openaccess.thecvf.com/content/ICCV2023/supplemental/Wang_HoloAssist_an_Egocentric_ICCV_2023_supplemental.pdf" aria-label="Supplemental link">Supplementary material</br></a>
-						<a class="publink" target="_blank" href="https://github.com/taeinkwon/PyHoloAssist" aria-label="Hand Eye Projection Code">Hand Eye Projection Code (Github)</br></a>
-						<a class="publink" target="_blank" href="https://github.com/Ember-HoloAssist/holoassist-release" aria-label="Github Code"> Baseline Code (Github)</br></a>
-						<a class="publink" target="_blank" href="data_links/README.html" aria-label="Instruction">How to start HoloAssist? (instruction) <br></a>
-					</p>
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
-
-
-		<!-- section start --> 
-		<section class="section secPadding">
-			<div class="container">
-				<h1 class="text-center title" id="team" style="color: black;">Teams</h1>
-				<div class="separator"></div>		
-				<div class="row no-view" data-animation-effect="fadeIn">
-					<div class="col-md-12">
-
-
-
-						<!-- portfolio items start -->
-						<div class="isotope-container row grid-space-20">
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/xin.png" alt="" width=100% >
-										<a href="https://xinw.ai/" class="overlay" aria-label="Xin's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="https://xinw.ai/" class="btn btn-default btn-block" aria-label="Xin's Profile">Xin Wang</a>
-								</div>
-							</div>
-
-
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/taein.png" alt=""  width=100%>
-										<a href="https://taeinkwon.com/" class="overlay" aria-label="Taein's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="https://taeinkwon.com/" class="btn btn-default btn-block" aria-label="Taein's Profile">Taein Kwon</a>
-								</div>
-							</div>
-
-							
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/mahdi.png" alt=""  width=100%>
-										<a href="https://radmahdi.github.io/Home.html" class="overlay" aria-label="Mahdi's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="https://radmahdi.github.io/Home.html" class="btn btn-default btn-block" aria-label="Mahdi's Profile">Mahdi Rad</a>
-								</div>
-							</div>
-
-
-
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/bowen.png" alt=""  width=100%>
-										<a href="http://people.csail.mit.edu/bpan/" class="overlay" aria-label="Bowen's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="http://people.csail.mit.edu/bpan/" class="btn btn-default btn-block" aria-label="Bowen's Profile">Bowen Pan</a>
-								</div>
-							</div>
-
-
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/ishani.png" alt=""  width=100%>
-										<a href="https://www.microsoft.com/en-us/research/people/ischakra/" class="overlay" aria-label="Ishani's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="https://www.microsoft.com/en-us/research/people/ischakra/" class="btn btn-default btn-block" aria-label="Ishani's Profile">Ishani Chakraborty</a>
-								</div>
-							</div>
-
-
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/sean.png" alt=""  width=100%>
-										<a href="https://seanandrist.com/" class="overlay" aria-label="Sean's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="https://seanandrist.com/" class="btn btn-default btn-block" aria-label="Sean's Profile">Sean Andrist</a>
-								</div>
-							</div>
-
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/dan.png" alt=""  width=100%>
-										<a href="http://www.danbohus.com/" class="overlay" aria-label="Dan's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="http://www.danbohus.com/" class="btn btn-default btn-block" aria-label="Dan's Profile">Dan Bohus</a>
-								</div>
-							</div>
-							
-
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/ashley.png" alt=""  width=100%>
-										<a href="https://www.microsoft.com/en-us/research/people/ashleyf/" class="overlay" aria-label="Ashley's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="https://www.microsoft.com/en-us/research/people/ashleyf/" class="btn btn-default btn-block" aria-label="Ashley's Profile">Ashley Feniello</a>
-								</div>
-							</div>
-
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/bugra.png" alt=""  width=100%>
-										<a href="https://btekin.github.io/" class="overlay" aria-label="Bugra's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="https://btekin.github.io/" class="btn btn-default btn-block" aria-label="Bugra's Profile">Bugra Tekin</a>
-								</div>
-							</div>
-							
-
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/felipe.png" alt=""  width=100%>
-										<a href="https://www.microsoft.com/en-us/research/people/fevieira/" class="overlay" aria-label="Felipe's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="https://www.microsoft.com/en-us/research/people/fevieira/" class="btn btn-default btn-block" aria-label="Felipe's Profile">Felipe Vieira Frujeri</a>
-								</div>
-							</div>
-
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/neel.png" alt=""  width=100%>
-										<a href="http://neelj.com/" class="overlay" aria-label="Neel's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="http://neelj.com/" class="btn btn-default btn-block" aria-label="Neel's Profile">Neel Joshi</a>
-								</div>
-							</div>
-
-							<div class="col-sm-6 col-md-3 isotope-item web-design">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/teams/marc.png" alt=""  width=100%>
-										<a href="https://people.inf.ethz.ch/marc.pollefeys/" class="overlay" aria-label="Marc's Profile">
-											<i class="fa fa-search-plus"></i>
-										</a>
-									</div>
-									<a  href="https://people.inf.ethz.ch/marc.pollefeys/" class="btn btn-default btn-block" aria-label="Marc's Profile">Marc Pollefeys</a>
-								</div>
-							</div>
-
-
-							
-							
-							
-
-
-							
-
-						</div>
-						<!-- portfolio items end -->
-					
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- section end -->
-
-
-		<section class="section clearfix no-view secPadding" data-animation-effect="fadeIn">
-			<div class="container">
-			   <div class="row">
-					<div class="col-md-12 mx-auto">
-					<h1 class="text-center title" id="citation" style="color: black;">Citation</h1>
-					 <br>
-					 <p class="text-center">
-					 <a class="publink" target="_blank" href="" style="color: #3975a3;"><b>
-						HoloAssist: an Egocentric Human Interaction Dataset
-						for Interactive AI Assistants in the Real World</b><br></a>
-						Xin Wang*, Taein Kwon*, Mahdi Rad, Bowen Pan, Ishani Chakraborty, Sean Andrist,
-						Dan Bohus, Ashley Feniello, Bugra Tekin, Felipe Vieira Frujeri, Neel Joshi, Marc Pollefeys, 
-					 ICCV 2023</p>
-					 <small>* Co-first authors</small>
-					 <br><br>
-					</div>
-					 <div class="col-lg mx-auto ">
-					 <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px" tabindex="0">
-@InProceedings{HoloAssist2023,
-    author    = {Wang, Xin and Kwon, Taein and Rad, Mahdi and Pan, Bowen and Chakraborty, Ishani and Andrist, Sean and Bohus, Dan and Feniello, Ashley and Tekin, Bugra and Frujeri, Felipe Vieira and Joshi, Neel and Pollefeys, Marc},
-    title     = {HoloAssist: an Egocentric Human Interaction Dataset for Interactive AI Assistants in the Real World},
-    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-    month     = {October},
-    year      = {2023},
-    pages     = {20270-20281}
-}</pre>
-
-				  </div>
-			   </div>
-			</div>
-		 </section>
-
-		 
-
-
-
-		
-
-
-
-		<!-- footer start --> 
-		<footer id="footer">
-
-			<!-- .footer start --> 
-			<div class="footer section">
-				<div class="container">
-					<h1 class="title text-center" id="contact">Contact</h1>
-					<div class="space"></div>
-					<div class="row">
-						<!-- 
-						<div class="col-sm-6">
-							<div class="footer-content">
-								<form role="form" id="footer-form">
-									<div class="form-group has-feedback">
-										<label class="sr-only" for="name2">Name</label>
-										<input type="text" class="form-control" id="name2" placeholder="Name" name="name2" required>
-										<i class="fa fa-user form-control-feedback"></i>
-									</div>
-									<div class="form-group has-feedback">
-										<label class="sr-only" for="email2">Email address</label>
-										<input type="email" class="form-control" id="email2" placeholder="Enter email" name="email2" required>
-										<i class="fa fa-envelope form-control-feedback"></i>
-									</div>
-									<div class="form-group has-feedback">
-										<label class="sr-only" for="message2">Message</label>
-										<textarea class="form-control" rows="8" id="message2" placeholder="Message" name="message2" required></textarea>
-										<i class="fa fa-pencil form-control-feedback"></i>
-									</div>
-									<input type="submit" value="Send" class="btn btn-default">
-								</form>
-							</div>
-						</div>
-					-->
-						
-						<div class="text-center">
-							<div class="footer-content">
-							<div class="widget-content">
-								<p>Please email us if you have any questions. </p>
-								
-
-								<!-- <p class="contacts"><i class="fa fa-map-marker"></i> 1508 Kembery Drive, Chicago, IL 60605 </p> -->
-
-								
-								<!-- <p class="contacts"><i class="fa fa-envelope"></i> holoassist-info@googlegroups.com</p> -->
-								
-								<p class="contacts"><i class="fa fa-envelope"></i> taein@robots.ox.ac.uk and sandrist@microsoft.com
-								</p>
-
-								<!-- <p class="contacts"></i> <a  target="_blank" href="privacy_policy.html">Privacy policy</a></p>  -->
-								<!-- <p>You can also join our <a href="https://discord.gg/WkTYWP5W">Discord group</a> to meet the community.</p> -->
-
-							</div>
-
-						</aside>
-								<ul class="social-links">
-									<li class="facebook"><a target="_blank" href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
-									<li class="twitter"><a target="_blank" href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
-									<li class="github"><a target="_blank" href="#" aria-label="Github"><i class="fa fa-github"></i></a></li>
-									<li class="googleplus"><a target="_blank" href="#" aria-label="GooglePlus"><i class="fa fa-book"></i></a></li>
-									<!-- <li class="googleplus"><a target="_blank" href="#"><i class="fa fa-google-plus"></i></a></li>
-									<li class="skype"><a target="_blank" href="#"><i class="fa fa-skype"></i></a></li>
-									<li class="linkedin"><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
-									<li class="youtube"><a target="_blank" href="#"><i class="fa fa-youtube"></i></a></li> -->
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- .footer end -->
-
-			<!-- .subfooter start --> 
-			<div class="subfooter">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<p class="text-center"><a href="mailto:taein@robots.ox.ac.uk">Contact Us</a> | <a href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy & Cookies</a> | <a href="https://go.microsoft.com/fwlink/?linkid=2259814">Consumer Health Privacy</a> | <a href="https://go.microsoft.com/fwlink/?LinkID=246338">Terms of Use </a> | <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx">Trademarks</a> | &copy; 2024</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- .subfooter end -->
-
-		</footer>
-		<!-- footer end -->
-
-		<!-- JavaScript --> 
-		<script type="text/javascript" src="plugins/jquery.min.js"></script>
-		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="plugins/modernizr.js"></script>
-		<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
-		<script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
-		<script type="text/javascript" src="plugins/jquery.appear.js"></script>
-
-		<!-- Custom Scripts -->
-		<script type="text/javascript" src="js/custom.js"></script>
-
-	</body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DatasetName — A Dual-View Egocentric Dataset</title>
+  <meta name="description" content="A large-scale egocentric dataset featuring paired first-person videos, scene scans, object scans, and three benchmark tasks." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__brand">DatasetName</a>
+      <ul class="nav__links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#dual-view">Dual-View</a></li>
+        <li><a href="#scans">Scans</a></li>
+        <li><a href="#tasks">Tasks</a></li>
+        <li><a href="#download">Download</a></li>
+        <li><a href="#cite">Cite</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header id="top" class="hero">
+    <div class="hero__inner">
+      <div class="hero__eyebrow">Egocentric Vision · Benchmark · 2026</div>
+      <h1 class="hero__title">
+        <span>DatasetName</span><br/>
+        <span class="hero__title-accent">A Dual-View Egocentric Dataset for&nbsp;Interaction Understanding</span>
+      </h1>
+      <p class="hero__subtitle">
+        Every session is captured simultaneously from <strong>two synchronized head-mounted cameras</strong>,
+        paired with dense scene scans and high-resolution object scans — enabling a new class of
+        multi-view first-person tasks.
+      </p>
+
+      <div class="hero__authors">
+        <span>Author One<sup>1</sup></span>
+        <span>Author Two<sup>1</sup></span>
+        <span>Author Three<sup>2</sup></span>
+        <span>Author Four<sup>1,2</sup></span>
+      </div>
+      <div class="hero__affils">
+        <span><sup>1</sup>Institution A</span>
+        <span><sup>2</sup>Institution B</span>
+      </div>
+
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#download">Download Dataset</a>
+        <a class="btn" href="#">Paper (arXiv)</a>
+        <a class="btn" href="#">Code</a>
+        <a class="btn" href="#">Video</a>
+      </div>
+
+      <!-- Key stats strip -->
+      <div class="stats">
+        <div class="stat"><div class="stat__num" data-count="1200">1,200</div><div class="stat__lbl">Sessions</div></div>
+        <div class="stat"><div class="stat__num" data-count="2400">2,400</div><div class="stat__lbl">Ego Videos</div></div>
+        <div class="stat"><div class="stat__num" data-count="85">85</div><div class="stat__lbl">Scene Scans</div></div>
+        <div class="stat"><div class="stat__num" data-count="540">540</div><div class="stat__lbl">Object Scans</div></div>
+        <div class="stat"><div class="stat__num" data-count="3">3</div><div class="stat__lbl">Benchmark Tasks</div></div>
+      </div>
+    </div>
+    <div class="hero__bg"></div>
+  </header>
+
+  <!-- ============ OVERVIEW ============ -->
+  <section id="overview" class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="section__kicker">01 — Overview</span>
+        <h2 class="section__title">A new lens on first-person activity</h2>
+      </div>
+      <div class="overview-grid">
+        <p class="lede">
+          DatasetName is a large-scale egocentric dataset designed for studying human–scene–object
+          interaction from <strong>paired first-person viewpoints</strong>. Unlike prior datasets
+          with a single wearable camera, every recording in DatasetName captures the same moment
+          from two synchronized ego cameras — opening up new benchmarks for cross-view
+          consistency, 3D reasoning, and collaborative activity understanding.
+        </p>
+        <ul class="feature-list">
+          <li><span class="dot"></span><div><b>Dual Ego Views</b> — two time-synchronized head-mounted cameras per session.</div></li>
+          <li><span class="dot"></span><div><b>Scene Scans</b> — dense 3D reconstructions of every recording environment.</div></li>
+          <li><span class="dot"></span><div><b>Object Scans</b> — high-resolution meshes for all interacted objects.</div></li>
+          <li><span class="dot"></span><div><b>Rich Annotations</b> — actions, hand/object states, gaze, and 6-DoF poses.</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DUAL-VIEW (signature) ============ -->
+  <section id="dual-view" class="section section--dark">
+    <div class="container">
+      <div class="section__head">
+        <span class="section__kicker">02 — Signature Feature</span>
+        <h2 class="section__title">Two Egocentric Views, One Moment</h2>
+        <p class="section__sub">
+          Every session is recorded by two participants wearing synchronized capture glasses.
+          Both streams are frame-aligned, hardware-timestamped, and come with shared scene &
+          object scans.
+        </p>
+      </div>
+
+      <!-- Dual video player -->
+      <div class="dualplayer" data-dualplayer>
+        <div class="dualplayer__views">
+          <figure class="ego">
+            <div class="ego__label">Ego View — Subject A</div>
+            <video data-ego="a" muted playsinline loop preload="metadata" poster="assets/images/ego_a_poster.jpg">
+              <source src="assets/videos/ego_a.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <figure class="ego">
+            <div class="ego__label">Ego View — Subject B</div>
+            <video data-ego="b" muted playsinline loop preload="metadata" poster="assets/images/ego_b_poster.jpg">
+              <source src="assets/videos/ego_b.mp4" type="video/mp4">
+            </video>
+          </figure>
+        </div>
+
+        <div class="dualplayer__controls">
+          <button class="pbtn" data-play aria-label="Play / Pause">▶</button>
+          <input type="range" min="0" max="1000" value="0" data-seek class="pbar" aria-label="Seek" />
+          <span class="ptime" data-time>00:00 / 00:00</span>
+          <button class="pbtn pbtn--ghost" data-sync aria-label="Resync">⟳ Sync</button>
+        </div>
+
+        <!-- Session picker -->
+        <div class="sessions">
+          <button class="chip chip--active" data-session data-a="assets/videos/ego_a.mp4" data-b="assets/videos/ego_b.mp4">Session 01 · Kitchen</button>
+          <button class="chip" data-session data-a="assets/videos/ego_a_2.mp4" data-b="assets/videos/ego_b_2.mp4">Session 02 · Workshop</button>
+          <button class="chip" data-session data-a="assets/videos/ego_a_3.mp4" data-b="assets/videos/ego_b_3.mp4">Session 03 · Office</button>
+          <button class="chip" data-session data-a="assets/videos/ego_a_4.mp4" data-b="assets/videos/ego_b_4.mp4">Session 04 · Lab</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCANS ============ -->
+  <section id="scans" class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="section__kicker">03 — 3D Assets</span>
+        <h2 class="section__title">Scene &amp; Object Scans</h2>
+        <p class="section__sub">
+          Beyond video, every session ships with the 3D context it was captured in.
+        </p>
+      </div>
+
+      <div class="scans-grid">
+        <article class="scan-card">
+          <div class="scan-card__media">
+            <img src="assets/images/scene_scan.jpg" alt="Scene scan preview" />
+            <div class="scan-card__badge">Scene Scan</div>
+          </div>
+          <div class="scan-card__body">
+            <h3>Dense Scene Reconstructions</h3>
+            <p>
+              Photogrammetric scans of each recording environment, delivered as textured meshes
+              and point clouds. Aligned to ego-camera coordinates for direct reprojection.
+            </p>
+            <ul class="meta">
+              <li>Textured <code>.obj</code> / <code>.ply</code></li>
+              <li>Camera extrinsics per frame</li>
+              <li>85 unique environments</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="scan-card">
+          <div class="scan-card__media">
+            <img src="assets/images/object_scan.jpg" alt="Object scan preview" />
+            <div class="scan-card__badge">Object Scan</div>
+          </div>
+          <div class="scan-card__body">
+            <h3>High-Resolution Object Scans</h3>
+            <p>
+              Every interacted object is independently scanned at sub-millimeter resolution,
+              enabling 6-DoF pose supervision and rendering-based evaluation.
+            </p>
+            <ul class="meta">
+              <li>Watertight meshes with PBR textures</li>
+              <li>Canonical object frame</li>
+              <li>540 unique instances</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TASKS ============ -->
+  <section id="tasks" class="section section--soft">
+    <div class="container">
+      <div class="section__head">
+        <span class="section__kicker">04 — Benchmarks</span>
+        <h2 class="section__title">Three Tasks</h2>
+        <p class="section__sub">
+          Built directly on top of the dual-view design — each task requires reasoning that a
+          single ego camera cannot support.
+        </p>
+      </div>
+
+      <div class="tasks">
+        <article class="task">
+          <div class="task__num">T1</div>
+          <h3 class="task__title">Cross-View Action Recognition</h3>
+          <p class="task__desc">
+            Given two synchronized ego streams, predict the joint activity label. Models must
+            fuse information from both viewpoints to disambiguate occluded interactions.
+          </p>
+          <div class="task__tags"><span>Classification</span><span>Multi-view</span><span>Video</span></div>
+        </article>
+
+        <article class="task">
+          <div class="task__num">T2</div>
+          <h3 class="task__title">Ego-to-Ego 3D Object Localization</h3>
+          <p class="task__desc">
+            Localize manipulated objects in the shared scene coordinate system using both ego
+            streams and the provided scene scan as geometric prior.
+          </p>
+          <div class="task__tags"><span>3D Detection</span><span>6-DoF Pose</span><span>Scene Prior</span></div>
+        </article>
+
+        <article class="task">
+          <div class="task__num">T3</div>
+          <h3 class="task__title">Collaborative Intent Forecasting</h3>
+          <p class="task__desc">
+            Predict the next interaction step for each subject, conditioning on <em>both</em>
+            wearers' past observations. Measures whether models can reason about
+            partner-aware intent.
+          </p>
+          <div class="task__tags"><span>Forecasting</span><span>Interaction</span><span>Temporal</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOWNLOAD ============ -->
+  <section id="download" class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="section__kicker">05 — Access</span>
+        <h2 class="section__title">Download</h2>
+      </div>
+
+      <div class="download-grid">
+        <a class="dl" href="#">
+          <div class="dl__name">Ego Videos</div>
+          <div class="dl__size">~ 420 GB · MP4</div>
+          <div class="dl__desc">Paired ego streams for all 1,200 sessions.</div>
+        </a>
+        <a class="dl" href="#">
+          <div class="dl__name">Scene Scans</div>
+          <div class="dl__size">~ 65 GB · OBJ/PLY</div>
+          <div class="dl__desc">Textured meshes + aligned point clouds.</div>
+        </a>
+        <a class="dl" href="#">
+          <div class="dl__name">Object Scans</div>
+          <div class="dl__size">~ 30 GB · GLB</div>
+          <div class="dl__desc">High-resolution PBR meshes per instance.</div>
+        </a>
+        <a class="dl" href="#">
+          <div class="dl__name">Annotations</div>
+          <div class="dl__size">~ 1.2 GB · JSON</div>
+          <div class="dl__desc">Actions, poses, gaze, hand states, splits.</div>
+        </a>
+      </div>
+
+      <p class="license">
+        Released under <a href="#">CC BY-NC 4.0</a>. By downloading you agree to the
+        <a href="#">terms of use</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ CITE ============ -->
+  <section id="cite" class="section section--soft">
+    <div class="container">
+      <div class="section__head">
+        <span class="section__kicker">06 — BibTeX</span>
+        <h2 class="section__title">Citation</h2>
+      </div>
+      <pre class="bibtex"><code>@article{datasetname2026,
+  title     = {DatasetName: A Dual-View Egocentric Dataset for Interaction Understanding},
+  author    = {Author One and Author Two and Author Three and Author Four},
+  journal   = {arXiv preprint arXiv:2601.00000},
+  year      = {2026}
+}</code></pre>
+      <button class="btn" data-copy-bibtex>Copy BibTeX</button>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© 2026 DatasetName Team</div>
+      <div class="footer__links">
+        <a href="#">Contact</a>
+        <a href="#">GitHub</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
