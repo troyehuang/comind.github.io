@@ -88,9 +88,80 @@
     });
   }
 
-  /* ---------- Scroll reveal ---------- */
-  const revealTargets = document.querySelectorAll('.section__head, .overview-grid, .dualplayer, .scans-grid, .tasks, .download-grid, .bibtex');
+  /* ---------- Hero carousel: auto-scroll + drag ---------- */
+  const carousel = document.querySelector('[data-carousel]');
+  const track = document.querySelector('[data-carousel-track]');
+  if (carousel && track) {
+    // Sync each rec's two videos
+    track.querySelectorAll('[data-rec]').forEach((rec) => {
+      const vids = rec.querySelectorAll('video');
+      if (vids.length === 2) {
+        setInterval(() => {
+          if (vids[0].paused || vids[1].paused) return;
+          if (Math.abs(vids[0].currentTime - vids[1].currentTime) > 0.08)
+            vids[1].currentTime = vids[0].currentTime;
+        }, 500);
+      }
+    });
+
+    // Auto-scroll
+    let autoSpeed = 0.5; // px per frame
+    let paused = false;
+    let userTimeout;
+    const autoScroll = () => {
+      if (!paused) {
+        track.scrollLeft += autoSpeed;
+        // Loop: when near the end, jump back
+        if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 1) {
+          track.scrollLeft = 0;
+        }
+      }
+      requestAnimationFrame(autoScroll);
+    };
+    requestAnimationFrame(autoScroll);
+
+    const pauseAuto = () => {
+      paused = true;
+      clearTimeout(userTimeout);
+      userTimeout = setTimeout(() => { paused = false; }, 3000);
+    };
+
+    // Mouse drag
+    let isDrag = false, startX, scrollStart;
+    track.addEventListener('mousedown', (e) => {
+      isDrag = true; startX = e.pageX; scrollStart = track.scrollLeft;
+      pauseAuto();
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDrag) return;
+      e.preventDefault();
+      track.scrollLeft = scrollStart - (e.pageX - startX);
+    });
+    window.addEventListener('mouseup', () => { isDrag = false; });
+
+    // Touch & wheel pause
+    track.addEventListener('touchstart', pauseAuto, { passive: true });
+    track.addEventListener('wheel', pauseAuto, { passive: true });
+
+    // Hover pause — stop while hovering, resume on leave
+    track.addEventListener('mouseenter', () => {
+      paused = true;
+      clearTimeout(userTimeout);
+    });
+    track.addEventListener('mouseleave', () => {
+      if (!isDrag) paused = false;
+    });
+  }
+
+  /* ---------- Scroll reveal + stagger ---------- */
+  const revealTargets = document.querySelectorAll('.section__head, .carousel, .overview-grid, .dualplayer, .bibtex');
   revealTargets.forEach((el) => el.classList.add('reveal'));
+
+  // Stagger groups: children animate one by one
+  const staggerTargets = document.querySelectorAll('.scans-grid, .tasks, .download-grid');
+  staggerTargets.forEach((el) => { el.classList.add('reveal'); el.classList.add('stagger'); });
+
+  const allReveal = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(
       (entries) => {
@@ -103,12 +174,38 @@
       },
       { rootMargin: '0px 0px -10% 0px', threshold: 0.08 }
     );
-    revealTargets.forEach((el) => io.observe(el));
+    allReveal.forEach((el) => io.observe(el));
   } else {
-    revealTargets.forEach((el) => el.classList.add('is-in'));
+    allReveal.forEach((el) => el.classList.add('is-in'));
   }
 
-  /* ---------- Stat counter ---------- */
+  /* ---------- Nav scroll spy ---------- */
+  const navLinks = document.querySelectorAll('.nav__links a');
+  const sections = [];
+  navLinks.forEach((a) => {
+    const id = a.getAttribute('href');
+    if (id && id.startsWith('#')) {
+      const sec = document.querySelector(id);
+      if (sec) sections.push({ el: sec, link: a });
+    }
+  });
+  if (sections.length && 'IntersectionObserver' in window) {
+    const spyIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            navLinks.forEach((l) => l.classList.remove('is-active'));
+            const match = sections.find((s) => s.el === e.target);
+            if (match) match.link.classList.add('is-active');
+          }
+        });
+      },
+      { rootMargin: '-30% 0px -60% 0px' }
+    );
+    sections.forEach((s) => spyIO.observe(s.el));
+  }
+
+  /* ---------- Stat counter — waits for hero entrance to finish ---------- */
   const nums = document.querySelectorAll('.stat__num');
   const animateNum = (el) => {
     const target = parseInt(el.getAttribute('data-count'), 10) || 0;
@@ -124,19 +221,30 @@
     };
     requestAnimationFrame(step);
   };
-  if ('IntersectionObserver' in window) {
-    const io2 = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            animateNum(e.target);
-            io2.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-    nums.forEach((n) => io2.observe(n));
+  // Stats panel is the last hero child (delay .8s + anim .8s = 1.6s).
+  // Start counting only after entrance animation completes.
+  const statsBox = document.querySelector('.stats');
+  if (statsBox) {
+    const startCounting = () => nums.forEach((n) => animateNum(n));
+    // If stats are already in viewport (hero), wait for entrance anim
+    const rect = statsBox.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      setTimeout(startCounting, 850);
+    } else {
+      // If user scrolls down before entrance finishes, use observer
+      const io2 = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              startCounting();
+              io2.disconnect();
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+      io2.observe(statsBox);
+    }
   }
 
   /* ---------- Copy BibTeX ---------- */
