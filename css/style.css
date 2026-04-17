@@ -223,46 +223,78 @@ code, pre { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, 
   margin-bottom: 40px;
 }
 
-/* Hero recording carousel */
-.carousel {
-  position: relative;
-  margin: 0 -28px 40px;  /* bleed past container */
-  user-select: none;
-}
-.carousel__track {
-  display: flex;
+/* Hero recording grid */
+.recgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  padding: 0 48px;
-  overflow-x: auto;
-  scroll-behavior: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  cursor: grab;
+  margin-bottom: 40px;
 }
-.carousel__track:active { cursor: grabbing; }
-.carousel__track::-webkit-scrollbar { display: none; }
-
-/* Left / right fade masks */
-.carousel__fade {
-  position: absolute; top: 0; bottom: 0; width: 64px;
-  z-index: 3; pointer-events: none;
-}
-.carousel__fade--l { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
-.carousel__fade--r { right: 0; background: linear-gradient(270deg, var(--bg), transparent); }
 
 /* Each recording card */
 .rec {
-  flex: 0 0 420px;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
-  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+  transition: transform .6s var(--ease), border-color .6s var(--ease), box-shadow .6s var(--ease), opacity .6s var(--ease);
   background: #000;
+  cursor: pointer;
 }
-.rec:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(47,109,246,.1), var(--shadow-md);
+/* Peek: hovered card lifts, siblings dim */
+.rec.is-peeking {
+  transform: scale(1.04);
+  border-color: rgba(47,109,246,.4);
+  box-shadow: 0 16px 48px rgba(0,0,0,.15), 0 0 0 0 rgba(47,109,246,.3);
+  animation: peekPulse 1.2s ease-in-out infinite alternate;
+  transition: transform .6s var(--ease), border-color .6s var(--ease), box-shadow .6s var(--ease);
+}
+.recgrid.has-peek .rec:not(.is-peeking) {
+  opacity: .45;
+  transform: scale(0.97);
+}
+@keyframes peekPulse {
+  0%   { box-shadow: 0 16px 48px rgba(0,0,0,.15), 0 0 0 0px rgba(47,109,246,.4); }
+  100% { box-shadow: 0 16px 48px rgba(0,0,0,.15), 0 0 0 14px rgba(47,109,246,.0); }
+}
+.rec:hover:not(.is-peeking) {
+  border-color: rgba(47,109,246,.15);
+}
+
+/* Ghost — flies from card position to screen center */
+.rec-ghost {
+  position: fixed;
+  z-index: 9999;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(47,109,246,.3);
+  background: #000;
+  pointer-events: auto;
+  box-shadow: 0 24px 80px rgba(0,0,0,.25), 0 8px 24px rgba(47,109,246,.12);
+  transition: top .5s var(--ease), left .5s var(--ease), width .5s var(--ease), box-shadow .5s var(--ease);
+  cursor: zoom-out;
+}
+.rec-ghost.is-centered {
+  box-shadow: 0 40px 100px rgba(0,0,0,.3), 0 12px 40px rgba(47,109,246,.15);
+}
+.rec-ghost.is-leaving {
+  transition: top .35s var(--ease), left .35s var(--ease), width .35s var(--ease), opacity .35s var(--ease);
+  opacity: 0;
+}
+
+/* Dim overlay */
+.rec-overlay {
+  position: fixed; inset: 0; z-index: 9998;
+  background: rgba(0,0,0,.2);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  transition: opacity .4s var(--ease);
+  cursor: zoom-out;
+}
+.rec-overlay.is-visible { opacity: 1; }
+
+@media (max-width: 720px) {
+  .recgrid { grid-template-columns: 1fr; }
 }
 .rec__screen {
   position: relative;

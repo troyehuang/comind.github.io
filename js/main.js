@@ -88,73 +88,128 @@
     });
   }
 
-  /* ---------- Hero carousel: auto-scroll + drag ---------- */
-  const carousel = document.querySelector('[data-carousel]');
-  const track = document.querySelector('[data-carousel-track]');
-  if (carousel && track) {
-    // Sync each rec's two videos
-    track.querySelectorAll('[data-rec]').forEach((rec) => {
-      const vids = rec.querySelectorAll('video');
-      if (vids.length === 2) {
-        setInterval(() => {
-          if (vids[0].paused || vids[1].paused) return;
-          if (Math.abs(vids[0].currentTime - vids[1].currentTime) > 0.08)
-            vids[1].currentTime = vids[0].currentTime;
-        }, 500);
-      }
+  /* ---------- Rec card sync ---------- */
+  document.querySelectorAll('[data-rec]').forEach((rec) => {
+    const vids = rec.querySelectorAll('video');
+    if (vids.length === 2) {
+      setInterval(() => {
+        if (vids[0].paused || vids[1].paused) return;
+        if (Math.abs(vids[0].currentTime - vids[1].currentTime) > 0.08)
+          vids[1].currentTime = vids[0].currentTime;
+      }, 500);
+    }
+  });
+
+  /* ---------- Rec hover: peek → pop (3D Touch style) ---------- */
+  let activeGhost = null;
+  let activeOverlay = null;
+  let activeSource = null;
+  let peekTimer = null;
+
+  const closeGhost = () => {
+    if (!activeGhost) return;
+    const src = activeSource;
+    const rect = src.getBoundingClientRect();
+    activeGhost.classList.remove('is-centered');
+    activeGhost.style.top = rect.top + 'px';
+    activeGhost.style.left = rect.left + 'px';
+    activeGhost.style.width = rect.width + 'px';
+    activeOverlay.classList.remove('is-visible');
+    const g = activeGhost, o = activeOverlay;
+    activeGhost = null; activeOverlay = null; activeSource = null;
+    g.addEventListener('transitionend', () => { g.remove(); o.remove(); }, { once: true });
+    setTimeout(() => { if (g.parentNode) g.remove(); if (o.parentNode) o.remove(); }, 600);
+  };
+
+  const recgrid = document.querySelector('.recgrid');
+
+  const cancelPeek = (rec) => {
+    clearTimeout(peekTimer);
+    peekTimer = null;
+    rec.classList.remove('is-peeking');
+    if (recgrid) recgrid.classList.remove('has-peek');
+  };
+
+  document.querySelectorAll('.rec').forEach((rec) => {
+    rec.addEventListener('mouseenter', () => {
+      if (activeGhost) return;
+
+      // Stage 1: Peek — lift up, dim siblings
+      rec.classList.add('is-peeking');
+      if (recgrid) recgrid.classList.add('has-peek');
+
+      // Stage 2: Pop — after peek settles (400ms), fly ghost to center
+      peekTimer = setTimeout(() => {
+        rec.classList.remove('is-peeking');
+        if (recgrid) recgrid.classList.remove('has-peek');
+        peekTimer = null;
+
+        const rect = rec.getBoundingClientRect();
+        activeSource = rec;
+
+        // Overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'rec-overlay';
+        document.body.appendChild(overlay);
+        overlay.addEventListener('click', closeGhost);
+        activeOverlay = overlay;
+
+        // Clone
+        const ghost = rec.cloneNode(true);
+        ghost.className = 'rec-ghost';
+        ghost.style.top = rect.top + 'px';
+        ghost.style.left = rect.left + 'px';
+        ghost.style.width = rect.width + 'px';
+        document.body.appendChild(ghost);
+        activeGhost = ghost;
+
+        // Sync video time
+        const origVids = rec.querySelectorAll('video');
+        const cloneVids = ghost.querySelectorAll('video');
+        cloneVids.forEach((v, i) => {
+          if (origVids[i]) v.currentTime = origVids[i].currentTime;
+          v.play().catch(() => {});
+        });
+
+        // Measure real height at target width
+        const targetW = Math.min(1800, window.innerWidth - 60);
+        const targetLeft = (window.innerWidth - targetW) / 2;
+        ghost.style.transition = 'none';
+        ghost.style.width = targetW + 'px';
+        ghost.style.left = '-9999px';
+        const actualH = ghost.offsetHeight;
+        ghost.style.top = rect.top + 'px';
+        ghost.style.left = rect.left + 'px';
+        ghost.style.width = rect.width + 'px';
+        ghost.offsetHeight;
+        ghost.style.transition = '';
+
+        const targetTop = Math.max(0, (window.innerHeight - actualH) / 2);
+
+        requestAnimationFrame(() => {
+          overlay.classList.add('is-visible');
+          ghost.style.top = targetTop + 'px';
+          ghost.style.left = targetLeft + 'px';
+          ghost.style.width = targetW + 'px';
+          ghost.classList.add('is-centered');
+        });
+
+        setTimeout(() => {
+          ghost.addEventListener('mouseleave', closeGhost);
+        }, 550);
+        ghost.addEventListener('click', closeGhost);
+      }, 400);
     });
 
-    // Auto-scroll
-    let autoSpeed = 0.5; // px per frame
-    let paused = false;
-    let userTimeout;
-    const autoScroll = () => {
-      if (!paused) {
-        track.scrollLeft += autoSpeed;
-        // Loop: when near the end, jump back
-        if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 1) {
-          track.scrollLeft = 0;
-        }
-      }
-      requestAnimationFrame(autoScroll);
-    };
-    requestAnimationFrame(autoScroll);
-
-    const pauseAuto = () => {
-      paused = true;
-      clearTimeout(userTimeout);
-      userTimeout = setTimeout(() => { paused = false; }, 3000);
-    };
-
-    // Mouse drag
-    let isDrag = false, startX, scrollStart;
-    track.addEventListener('mousedown', (e) => {
-      isDrag = true; startX = e.pageX; scrollStart = track.scrollLeft;
-      pauseAuto();
+    rec.addEventListener('mouseleave', () => {
+      if (peekTimer) cancelPeek(rec);
     });
-    window.addEventListener('mousemove', (e) => {
-      if (!isDrag) return;
-      e.preventDefault();
-      track.scrollLeft = scrollStart - (e.pageX - startX);
-    });
-    window.addEventListener('mouseup', () => { isDrag = false; });
+  });
 
-    // Touch & wheel pause
-    track.addEventListener('touchstart', pauseAuto, { passive: true });
-    track.addEventListener('wheel', pauseAuto, { passive: true });
-
-    // Hover pause — stop while hovering, resume on leave
-    track.addEventListener('mouseenter', () => {
-      paused = true;
-      clearTimeout(userTimeout);
-    });
-    track.addEventListener('mouseleave', () => {
-      if (!isDrag) paused = false;
-    });
-  }
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeGhost(); });
 
   /* ---------- Scroll reveal + stagger ---------- */
-  const revealTargets = document.querySelectorAll('.section__head, .carousel, .overview-grid, .dualplayer, .bibtex');
+  const revealTargets = document.querySelectorAll('.section__head, .recgrid, .overview-grid, .dualplayer, .bibtex');
   revealTargets.forEach((el) => el.classList.add('reveal'));
 
   // Stagger groups: children animate one by one
