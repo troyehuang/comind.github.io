@@ -1,0 +1,247 @@
+/* ============================================================
+   CoMind / DatasetName — Design Tokens
+   Dual-View Egocentric Human Collaboration Dataset
+   ============================================================ */
+
+:root {
+  /* ---------- Base palette (DARK) ---------- */
+  --bg:        #0a0b0f;   /* page background — deep near-black */
+  --bg-soft:   #121418;   /* alternating section wash */
+  --bg-dark:   #050609;   /* deepest — video chrome, BibTeX block */
+  --surface:   #16181d;   /* cards, elevated surfaces */
+  --surface-2: #1c1f25;   /* second-tier elevated (hover, chips) */
+
+  /* ---------- Foreground / text ---------- */
+  --fg-1:      #f2f4f8;   /* primary text, headlines */
+  --fg-2:      #a9adb6;   /* body copy, descriptions */
+  --fg-mute:   #6b6f78;   /* captions, labels, meta */
+  --fg-on-dark:#f2f4f8;   /* alias */
+  --fg-on-dark-2: #a9adb6;
+
+  /* ---------- Borders & dividers ---------- */
+  --border:        #23262d;      /* standard hairline on dark surface */
+  --border-dark:   #2a2d35;      /* slightly lighter for stacked elevations */
+  --border-accent: rgba(122,162,255,.30);  /* tinted accent border (pills, chips) */
+
+  /* ---------- Accent ---------- */
+  --accent:    #7aa2ff;   /* lighter blue reads better on dark */
+  --accent-2:  #a9c2ff;   /* softer companion */
+  --accent-deep: #2f6df6; /* saturated blue for gradient stops / shadows */
+  --accent-tint: rgba(122,162,255,.10);   /* fills for pills, hover washes */
+  --accent-glow: rgba(47,109,246,.25);    /* background blobs, selection */
+
+  /* ---------- Dual-view signature (A / B streams) ---------- */
+  --viewA: #2f6df6;       /* Subject A stream badge tint */
+  --viewB: #7aa2ff;       /* Subject B stream badge tint */
+
+  /* ---------- Typography ---------- */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Base body scale */
+  --fs-body:   16px;
+  --fs-body-lg: 17px;    /* .lede, .section__sub */
+  --fs-small:  14px;
+  --fs-micro:  12px;     /* kickers, stat labels, tag chips */
+
+  /* Line-heights */
+  --lh-tight:  1.08;     /* display headings */
+  --lh-snug:   1.15;     /* section titles */
+  --lh-normal: 1.6;      /* body */
+  --lh-mono:   1.7;      /* code blocks */
+
+  /* Letter-spacing */
+  --tracking-tight: -0.025em;   /* hero title */
+  --tracking-snug:  -0.02em;    /* section title, stat numbers */
+  --tracking-head:  -0.015em;   /* h1–h3 */
+  --tracking-flat:  0em;
+  --tracking-wide:  0.08em;     /* stat labels (uppercase) */
+  --tracking-wider: 0.12em;     /* hero eyebrow */
+  --tracking-widest: 0.14em;    /* section kicker */
+
+  /* Weights */
+  --fw-reg:  400;
+  --fw-med:  500;
+  --fw-sem:  600;
+  --fw-bold: 700;
+
+  /* ---------- Spacing ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 22px;
+  --space-6: 28px;
+  --space-7: 40px;
+  --space-8: 56px;
+  --space-9: 80px;
+  --space-10: 96px;
+
+  /* Section / container */
+  --maxw: 1120px;
+  --section-y: 96px;      /* vertical padding per section */
+  --gutter: 28px;
+
+  /* ---------- Radii ---------- */
+  --radius:    14px;
+  --radius-sm: 8px;
+  --radius-xs: 6px;       /* small tag tiles */
+  --radius-pill: 999px;
+
+  /* ---------- Elevation (shadows) — tuned for dark surfaces ---------- */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4), 0 2px 6px rgba(0,0,0,.25);
+  --shadow-md: 0 6px 20px rgba(0,0,0,.45), 0 16px 40px rgba(0,0,0,.35);
+  --shadow-lg: 0 30px 80px rgba(0,0,0,.7), 0 0 0 1px rgba(122,162,255,.06);
+  --shadow-accent-hover: 0 0 0 1px rgba(122,162,255,.35), 0 8px 30px rgba(47,109,246,.25);
+
+  /* ---------- Motion ---------- */
+  --ease: cubic-bezier(.2,.7,.2,1);           /* signature easing — soft out */
+  --dur-fast:   .2s;
+  --dur-normal: .3s;
+  --dur-slow:   .6s;
+  --dur-reveal: .7s;
+  --dur-hero:   .8s;
+}
+
+/* ============================================================
+   SEMANTIC TYPE — map to HTML elements
+   Use these classes or raw tags; both anchor on tokens above.
+   ============================================================ */
+
+body, .type-body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+  font-weight: var(--fw-reg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display / page-hero title — "DatasetName" gradient line */
+h1, .type-h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: var(--fw-sem);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+  margin: 0 0 22px;
+}
+
+.type-stat-num, .type-gradient {
+  /* bright-on-dark gradient override */
+}
+
+/* Hero secondary line — lighter weight, smaller, muted color */
+.type-h1-accent {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: var(--fw-med);
+  color: var(--fg-2);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Section title */
+h2, .type-h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(28px, 3.6vw, 40px);
+  font-weight: var(--fw-sem);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-snug);
+  color: var(--fg-1);
+  margin: 0 0 14px;
+}
+
+/* Sub-section / card title */
+h3, .type-h3 {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: var(--fw-sem);
+  line-height: 1.25;
+  letter-spacing: var(--tracking-head);
+  color: var(--fg-1);
+  margin: 0 0 10px;
+}
+
+/* Lede / section subtitle — slightly larger body for intros */
+.type-lede, .type-section-sub {
+  font-size: var(--fs-body-lg);
+  color: var(--fg-2);
+  line-height: var(--lh-normal);
+  margin: 0;
+}
+
+/* Small meta text (cards, tags) */
+.type-small {
+  font-size: var(--fs-small);
+  color: var(--fg-2);
+  line-height: 1.5;
+}
+
+/* Eyebrow pill (hero) — uppercase, accent-colored, pill container */
+.type-eyebrow {
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-sem);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Section kicker — "01 — Overview" */
+.type-kicker {
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-sem);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Stat label (below numerals) */
+.type-stat-label {
+  font-size: var(--fs-micro);
+  color: var(--fg-mute);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Stat numeral — gradient fill, tabular (on dark: white → accent) */
+.type-stat-num {
+  font-family: var(--font-sans);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-snug);
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(135deg, #ffffff 30%, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mono — code, BibTeX, timestamp readouts, task IDs */
+code, pre, .type-mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: var(--lh-mono);
+}
+
+/* Gradient text — applied to hero brand line */
+.type-gradient {
+  background: linear-gradient(135deg, #ffffff 35%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   SEMANTIC BACKGROUNDS
+   ============================================================ */
+
+.bg-page    { background: var(--bg); color: var(--fg-1); }
+.bg-soft    { background: var(--bg-soft); color: var(--fg-1); }
+.bg-dark    { background: var(--bg-dark); color: var(--fg-on-dark); }
+.bg-surface { background: var(--surface); color: var(--fg-1); }
+
+/* ============================================================
+   GLOBAL SELECTION (brand accent tint)
+   ============================================================ */
+::selection { background: var(--accent-glow); }
